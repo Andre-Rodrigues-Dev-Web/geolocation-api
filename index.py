@@ -38,6 +38,7 @@ def geocode():
 
     url = "https://us1.locationiq.com/v1/reverse.php?key="+key+"&lat="+lat+"&lon="+lon+"&format=json"
     response = requests.get(url)
+    response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response.json()
 
