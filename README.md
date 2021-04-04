@@ -5,7 +5,9 @@ Is a simple API develop in PYTHON and Flask, to integration in SINESP for free u
 
 First
 ```
-npm install
+apt install python3-pip
+pip3 install flask
+
 ```
 
 Second 
