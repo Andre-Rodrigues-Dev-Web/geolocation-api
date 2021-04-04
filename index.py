@@ -7,9 +7,9 @@ import urllib.parse
 import requests
 
 app = flask.Flask(__name__)
-app.config['DEBUG'] = True
+app.config['DEBUG'] = False
 key = "d6f49dee38b888"
-port = 5100
+port = 81
 
 @app.route('/geocode', methods=['GET'])
 def geocode():
