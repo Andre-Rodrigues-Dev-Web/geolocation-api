@@ -3,6 +3,8 @@
 from collections import OrderedDict
 import flask
 from flask import Flask, request, Response, jsonify, render_template 
+from flask_cors import CORS, cross_origin
+
 import urllib.parse
 import requests
 
@@ -10,6 +12,9 @@ app = flask.Flask(__name__)
 app.config['DEBUG'] = False
 key = "d6f49dee38b888"
 port = 81
+
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/', methods=['get'])
 def index():
@@ -19,6 +24,7 @@ def index():
     # -----------------------------------------------
     return jsonify({"mensagem": "Acesso via /geocode?lat=-37.870662&lon=144.9803321"})
 
+@cross_origin()
 @app.route('/geocode', methods=['GET'])
 def geocode():
 
