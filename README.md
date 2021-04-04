@@ -1,20 +1,6 @@
 ### Sinesp OpenSource API v1
 Is a simple API develop in PYTHON and Flask, to integration in SINESP for free user :)
 
-### How to server a project
-
-First
-```
-apt install python3-pip
-pip3 install flask
-
-```
-
-Second 
-```
-nodemon .\app.js localhost 3000
-```
-
 ### How to teste API
 
 Endpoint demo:
@@ -22,114 +8,59 @@ Endpoint demo:
 Request POST
 
 ```
-https://geolocation.backofficesolucoes.io/
-```
-
-Body:
-
-```json
-{
-   "key":"chavedemostracao",
-   "plate":"hbm6603"
-}
-```
-Response ALERT:
-
-```json
-{
-   "code":200,
-   "data":{
-      "ano":"1978",
-      "anoModelo":"1978",
-      "chassi":"*****09660",
-      "codigoRetorno":"0",
-      "codigoSituacao":"1",
-      "cor":"Branca",
-      "data":"2020-10-29T13:00:39.948-03:00",
-      "dataAtualizacaoAlarme":"",
-      "dataAtualizacaoCaracteristicasVeiculo":"",
-      "dataAtualizacaoRouboFurto":"",
-      "marca":"VW/FUSCA 1300 L",
-      "mensagemRetorno":"Sem erros.",
-      "modelo":"VW/FUSCA 1300 L",
-      "municipio":"PINDAMONHANGABA",
-      "placa":"BHS1192",
-      "situacao":"ROUBO / FURTO",
-      "uf":"SP"
-   }
-}
+https://geolocation.contrateumdev.com.br/geocode?lat=-19.9177437&lon=-44.1000478
 ```
 
 Response SUCCESS:
 
 ```json
 {
-   "code":200,
-   "data":{
-      "ano":"2003",
-      "anoModelo":"2004",
-      "chassi":"*****80726",
-      "codigoRetorno":"0",
-      "codigoSituacao":"0",
-      "cor":"Prata",
-      "data":"23/05/2019 às 17:25:02",
-      "dataAtualizacaoAlarme":null,
-      "dataAtualizacaoCaracteristicasVeiculo":null,
-      "dataAtualizacaoRouboFurto":null,
-      "marca":"FIAT/PALIO FIRE",
-      "mensagemRetorno":"Sem erros.",
-      "modelo":"FIAT/PALIO FIRE",
-      "municipio":"RIBEIRAO DAS NEVES",
-      "placa":"HBM6603",
-      "situacao":"Sem restrição",
-      "uf":"MG"
-   }
-}
-```
-
-### Responses ERROR:
-
-Plate error:
-
-```json
-{
-   "code":500,
-   "error":"Sem informações, verifique se é uma placa válida",
-   "plate":"",
-   "infos":"null"
-}
-```
-
-No key
-```json
-{
-   "code":403,
-   "error":"Solicite a chave da API"
+    "address": {
+        "city": "Contagem",
+        "country": "Brazil",
+        "country_code": "br",
+        "county": "Microrregião Belo Horizonte",
+        "postcode": "32072330",
+        "road": "Rua Gaforina",
+        "state": "Minas Gerais",
+        "state_district": "Região Geográfica Intermediária de Belo Horizonte",
+        "suburb": "Petrolândia"
+    },
+    "boundingbox": [
+        "-19.9188292",
+        "-19.9179392",
+        "-44.1064442",
+        "-44.0996876"
+    ],
+    "display_name": "Região Metropolitana de Belo Horizonte, Região Geográfica Intermediária de Belo Horizonte, Minas Gerais, Southeast Region, 32072330, Brazil",
+    "lat": "-19.9183173",
+    "licence": "https://locationiq.com/attribution",
+    "lon": "-44.1001843",
+    "osm_id": "224298752",
+    "osm_type": "way",
+    "place_id": "141466939"
 }
 ```
 ### How to consume API in $.POST Jquery
 
 ```javascript
-function getSinespPlate(platesearch){
-
-    if(platesearch != ''){
-        $.post({
-            method: 'POST',
-            url: 'https://sinesp.backofficesolucoes.io',
-            data: {'key': 'chavedemostracao', 'plate': platesearch},
-            success: function(data, status, xhr) {
-                resultado = JSON.parse(data);
-                if (resultado.code === 200) {
-                    console.log(resultado?.data)
-                }else{
-                    error = JSON.parse(data);
-                    console.log(resultado?.data)
-                }
-            },
-            error: function(data) {
-                console.log(data.error)
+function getData()
+{
+    $.post({
+        method: 'GET',
+        url: 'https://geolocation.contrateumdev.com.br/geocode?lat=-19.9177437&lon=-44.1000478',
+        success: function(data, status, xhr) {
+            resultado = JSON.parse(data);
+            if (resultado) {
+                console.log(resultado?.data)
+            }else{
+                error = JSON.parse(data);
+                console.log(resultado?.data)
             }
-        })
-    }
+        },
+        error: function(data) {
+            console.log(data.error)
+        }
+    })
 }
 ```
