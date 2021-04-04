@@ -24,6 +24,7 @@ def index():
     # -----------------------------------------------
     return jsonify({"mensagem": "Acesso via /api/geocode?lat=-37.870662&lon=144.9803321"})
 
+CORS(app, resources=r'/api/*')
 @app.route('/api/geocode', methods=['GET'])
 def geocode():
 
@@ -37,7 +38,6 @@ def geocode():
 
     url = "https://us1.locationiq.com/v1/reverse.php?key="+key+"&lat="+lat+"&lon="+lon+"&format=json"
     response = requests.get(url)
-    response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response.json()
 
