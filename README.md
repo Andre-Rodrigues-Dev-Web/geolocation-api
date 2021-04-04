@@ -51,8 +51,7 @@ function getData()
     $.post({
         method: 'GET',
         url: 'https://geolocation.contrateumdev.com.br/api/geocode?lat=-19.9177437&lon=-44.1000478',
-        success: function(data, status, xhr) {
-            resultado = JSON.parse(data);
+        success: function(resultado, status, xhr) {
             if (resultado) {
                 console.log(resultado?.data)
             }else{
