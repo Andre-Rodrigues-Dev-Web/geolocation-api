@@ -1,11 +1,9 @@
-### Sinesp OpenSource API v1
-Is a simple API develop in PYTHON and Flask, to integration in SINESP for free user :)
+### Geolocation FreeAPI
+Is a simple API develop in PYTHON and Flask, to integration in LocationIQ for free user :)
 
 ### How to teste API
 
-Endpoint demo:
-
-Request POST
+Endpoint demo Request GET:
 
 ```
 https://geolocation.contrateumdev.com.br/geocode?lat=-19.9177437&lon=-44.1000478
@@ -14,32 +12,36 @@ https://geolocation.contrateumdev.com.br/geocode?lat=-19.9177437&lon=-44.1000478
 Response SUCCESS:
 
 ```json
-{
-    "address": {
-        "city": "Contagem",
-        "country": "Brazil",
-        "country_code": "br",
-        "county": "Microrregião Belo Horizonte",
-        "postcode": "32072330",
-        "road": "Rua Gaforina",
-        "state": "Minas Gerais",
-        "state_district": "Região Geográfica Intermediária de Belo Horizonte",
-        "suburb": "Petrolândia"
-    },
-    "boundingbox": [
-        "-19.9188292",
-        "-19.9179392",
-        "-44.1064442",
-        "-44.0996876"
-    ],
-    "display_name": "Região Metropolitana de Belo Horizonte, Região Geográfica Intermediária de Belo Horizonte, Minas Gerais, Southeast Region, 32072330, Brazil",
-    "lat": "-19.9183173",
-    "licence": "https://locationiq.com/attribution",
-    "lon": "-44.1001843",
-    "osm_id": "224298752",
+[
+    {
+    "place_id": "320469537366",
+    "osm_id": "28935774",
     "osm_type": "way",
-    "place_id": "141466939"
-}
+    "licence": "https://locationiq.com/attribution",
+    "lat": "-19.8238465",
+    "lon": "-44.0076998",
+    "boundingbox": [
+        "-19.8264259",
+        "-19.8214398",
+        "-44.008683",
+        "-44.0067474"
+    ],
+    "class": "highway",
+    "type": "residential",
+    "display_name": "Rua Ana Alvarenga Campos, Céu Azul, Ribeirão das Neves, Minas Gerais, 31585000, Brazil",
+    "display_place": "Rua Ana Alvarenga Campos",
+    "display_address": "Céu Azul, Ribeirão das Neves, Minas Gerais, 31585000, Brazil",
+    "address": {
+        "name": "Rua Ana Alvarenga Campos",
+        "suburb": "Céu Azul",
+        "city": "Ribeirão das Neves",
+        "state": "Minas Gerais",
+        "postcode": "31585000",
+        "country": "Brazil",
+        "country_code": "br"
+        }
+    }
+]
 ```
 ### How to consume API in $.POST Jquery
 
