@@ -24,7 +24,6 @@ def index():
     # -----------------------------------------------
     return jsonify({"mensagem": "Acesso via /api/geocode?lat=-37.870662&lon=144.9803321"})
 
-CORS(app, resources=r'/api/*')
 @app.route('/api/geocode', methods=['GET'])
 def geocode():
 
