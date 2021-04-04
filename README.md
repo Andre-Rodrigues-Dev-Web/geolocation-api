@@ -6,7 +6,7 @@ Is a simple API develop in PYTHON and Flask, to integration in LocationIQ for fr
 Endpoint demo Request GET:
 
 ```
-https://geolocation.contrateumdev.com.br/geocode?lat=-19.9177437&lon=-44.1000478
+https://geolocation.contrateumdev.com.br/api/geocode?lat=-19.9177437&lon=-44.1000478
 ```
 
 Response SUCCESS:
@@ -50,7 +50,7 @@ function getData()
 {
     $.post({
         method: 'GET',
-        url: 'https://geolocation.contrateumdev.com.br/geocode?lat=-19.9177437&lon=-44.1000478',
+        url: 'https://geolocation.contrateumdev.com.br/api/geocode?lat=-19.9177437&lon=-44.1000478',
         success: function(data, status, xhr) {
             resultado = JSON.parse(data);
             if (resultado) {

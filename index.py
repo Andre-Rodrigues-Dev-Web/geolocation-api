@@ -22,10 +22,10 @@ def index():
     # -----------------------------------------------
     # Welcome
     # -----------------------------------------------
-    return jsonify({"mensagem": "Acesso via /geocode?lat=-37.870662&lon=144.9803321"})
+    return jsonify({"mensagem": "Acesso via /api/geocode?lat=-37.870662&lon=144.9803321"})
 
-@cross_origin()
-@app.route('/geocode', methods=['GET'])
+CORS(app, resources=r'/api/*')
+@app.route('/api/geocode', methods=['GET'])
 def geocode():
 
     # -----------------------------------------------
