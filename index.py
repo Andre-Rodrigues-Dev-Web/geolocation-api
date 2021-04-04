@@ -11,6 +11,15 @@ app.config['DEBUG'] = False
 key = "d6f49dee38b888"
 port = 81
 
+@app.route('/', methods=['get'])
+def index():
+
+    # -----------------------------------------------
+    # Welcome
+    # -----------------------------------------------
+
+    return jsonify({"mensagem": "Acesso via /geocode?lat=-37.870662&lon=144.9803321"})
+
 @app.route('/geocode', methods=['GET'])
 def geocode():
 
