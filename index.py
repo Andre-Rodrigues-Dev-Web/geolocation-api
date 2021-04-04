@@ -28,4 +28,4 @@ def geocode():
     return response.json()
 
 #app.run()
-serve(app, host='0.0.0.0', port=80)
+serve(app, host='0.0.0.0', port=8000)
