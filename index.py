@@ -5,11 +5,11 @@ import flask
 from flask import Flask, request, Response, jsonify, render_template 
 import urllib.parse
 import requests
-from waitress import serve
 
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True
 key = "d6f49dee38b888"
+port = 5100
 
 @app.route('/geocode', methods=['GET'])
 def geocode():
@@ -27,5 +27,4 @@ def geocode():
 
     return response.json()
 
-#app.run()
-serve(app, host='0.0.0.0', port=8000)
+app.run(host="0.0.0.0", port=port)
